@@ -1,12 +1,13 @@
+"use client";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
-import ResumeUpload from "../components/ResumeUpload";
-import ResumePreview from "../components/ResumePreview";
-import ATSScoreMeter from "../components/ATSScoreMeter";
-import KeywordHighlights from "../components/KeywordHighlights";
-import JobDescriptionInput from "../components/JobDescriptionInput";
-import { analyzeResume } from "../utils/api";
+import Navbar from "@/component/Navbar";
+import ResumeUpload from "@/component/ResumeUpload";
+import ResumePreview from "@/component/ResumePreview";
+import ATSScoreMeter from "@/component/ATSScoreMeter";
+import KeywordHighlights from "@/component/KeywordHighlights";
+import JobDescriptionInput from "@/component/JobDescriptionInput";
+import { analyzeResume } from "../../utils/api";
 
 export default function AnalyzePage() {
   const [file, setFile] = useState(null);

@@ -1,5 +1,6 @@
+"use client"
 import { useState } from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '@/component/Navbar'
 import { FiFileText, FiStar, FiDownload, FiTrash2 } from 'react-icons/fi'
 
 export default function Dashboard() {

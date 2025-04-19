@@ -1,6 +1,6 @@
 import Navbar from "@/component/Navbar";
 import { FiArrowRight } from "react-icons/fi";
-import templates from "@/data/templates";
+import { alltemplates } from "@/staticData/template";
 
 export default function Templates() {
   return (
@@ -15,7 +15,7 @@ export default function Templates() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {templates.map((template) => (
+          {alltemplates.map((template) => (
             <div
               key={template.id}
               className="bg-white rounded-lg shadow-md overflow-hidden"

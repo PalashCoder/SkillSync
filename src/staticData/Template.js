@@ -1,4 +1,4 @@
-export default templates = [
+export const alltemplates = [
   {
     id: 1,
     name: "Modern Professional",

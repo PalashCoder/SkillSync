@@ -1,35 +1,39 @@
-"use client"
-import { useState } from 'react'
-import Navbar from '@/component/Navbar'
-import { FiFileText, FiStar, FiDownload, FiTrash2 } from 'react-icons/fi'
+"use client";
+import { useState } from "react";
+import Navbar from "@/component/Navbar";
+import { FiFileText, FiStar, FiDownload, FiTrash2 } from "react-icons/fi";
 
 export default function Dashboard() {
   const [resumes, setResumes] = useState([
     {
       id: 1,
-      name: 'Software Engineer Resume',
-      lastEdited: '2023-05-15',
+      name: "Software Engineer Resume",
+      lastEdited: "2023-05-15",
       atsScore: 85,
-      isFavorite: true
+      isFavorite: true,
     },
     {
       id: 2,
-      name: 'Product Manager Resume',
-      lastEdited: '2023-05-10',
+      name: "Product Manager Resume",
+      lastEdited: "2023-05-10",
       atsScore: 72,
-      isFavorite: false
-    }
-  ])
+      isFavorite: false,
+    },
+  ]);
 
   const deleteResume = (id) => {
-    setResumes(resumes.filter(resume => resume.id !== id))
-  }
+    setResumes(resumes.filter((resume) => resume.id !== id));
+  };
 
   const toggleFavorite = (id) => {
-    setResumes(resumes.map(resume => 
-      resume.id === id ? {...resume, isFavorite: !resume.isFavorite} : resume
-    ))
-  }
+    setResumes(
+      resumes.map((resume) =>
+        resume.id === id
+          ? { ...resume, isFavorite: !resume.isFavorite }
+          : resume
+      )
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -46,29 +50,43 @@ export default function Dashboard() {
               <div key={resume.id} className="p-4 hover:bg-gray-50 transition">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <button 
+                    <button
                       onClick={() => toggleFavorite(resume.id)}
                       className="text-gray-400 hover:text-yellow-400"
                     >
-                      <FiStar className={`h-5 w-5 ${resume.isFavorite ? 'text-yellow-400 fill-yellow-400' : ''}`} />
+                      <FiStar
+                        className={`h-5 w-5 ${
+                          resume.isFavorite
+                            ? "text-yellow-400 fill-yellow-400"
+                            : ""
+                        }`}
+                      />
                     </button>
                     <div>
-                      <h3 className="font-medium text-gray-900">{resume.name}</h3>
-                      <p className="text-sm text-gray-500">Last edited: {resume.lastEdited}</p>
+                      <h3 className="font-medium text-gray-900">
+                        {resume.name}
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        Last edited: {resume.lastEdited}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      resume.atsScore >= 80 ? 'bg-green-100 text-green-800' : 
-                      resume.atsScore >= 60 ? 'bg-yellow-100 text-yellow-800' : 
-                      'bg-red-100 text-red-800'
-                    }`}>
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        resume.atsScore >= 80
+                          ? "bg-green-100 text-green-800"
+                          : resume.atsScore >= 60
+                          ? "bg-yellow-100 text-yellow-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
                       ATS: {resume.atsScore}/100
                     </span>
                     <button className="text-gray-400 hover:text-primary">
                       <FiDownload className="h-5 w-5" />
                     </button>
-                    <button 
+                    <button
                       onClick={() => deleteResume(resume.id)}
                       className="text-gray-400 hover:text-red-500"
                     >
@@ -88,5 +106,5 @@ export default function Dashboard() {
         </div>
       </main>
     </div>
-  )
+  );
 }
